@@ -15,11 +15,11 @@ module Update =
     let initModel =    
         {
             count = 0
-            error = None
             page = Home
         }
 
     let notify (snkbar:ISnackbar) (msg:string) = snkbar.Add msg |> ignore
+    let notifyError (snkbar:ISnackbar) (msg:string) =  snkbar.Add(msg,severity = Severity.Error) |> ignore
 
     // wrapper for sending messages to the server that meets the type signature of the Elmish Cmd.ofTask
     let send (serverDispatch:ClientInitiatedMessages -> Task) (msg:ClientInitiatedMessages) = 
@@ -32,8 +32,7 @@ module Update =
         match msg with
         | Started  -> model, Cmd.OfTask.either (send updParms.serverDispatch) (Clnt_Connected {Time=DateTime.Now}) Nop Error
         | Reset -> model,  Cmd.OfTask.either (send updParms.serverDispatch) (Clnt_Reset "") Nop Error
-        | ShowError err -> {model with error = err}, Cmd.none
-        | Error ex -> {model with error = Some ex.Message}, Cmd.none
+        | Error ex -> notifyError updParms.snkbar (ex.Message); model, Cmd.none
         | Nop _ -> model, Cmd.none
         | SetPage page -> {model with page = page}, Cmd.none
 

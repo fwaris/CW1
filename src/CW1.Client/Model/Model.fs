@@ -2,8 +2,8 @@
 open System
 open Bolero
 
-//Very often need multiple 'pages' even in a single page app (eg. for authenticaiton).
-//Retaining the page mechanism, even though there is only one page in this app
+//Very often need multiple 'pages' even in a single page app (eg. for authentication).
+//Here we are retaining the paging mechanism, even though there is only one page in this app
 type Page =
     | [<EndPoint "/">] Home
     //| [<EndPoint "/authentication/{action}">] Authentication of action:string 
@@ -12,7 +12,6 @@ type Page =
 type Model = {
     count   : int
     page    : Page
-    error   : string option
 }
 
 //Type definition for data exchanged between client and server in a message (as JSON over the wire)
@@ -25,7 +24,6 @@ type ServerInitiatedMessages =
     | Srv_Count of int
     | Srv_Notification of string
 
-
 ///Messages sent by the client to the server
 type ClientInitiatedMessages =
     | Clnt_Reset of string      //need message parameter for signalR serialization (it seems)
@@ -35,7 +33,6 @@ type ClientInitiatedMessages =
 type Message =
     | Reset
     | Nop of unit 
-    | ShowError of string option
     | Error of exn
     | SetPage of Page
     | Started 

@@ -16,7 +16,7 @@ module AppBar =
                     comp<MudText> {
                         "Align" => Align.Center
                         "Typo" => Typo.h6
-                        "Contemporary Web App Toolkit Demo"
+                        "Contemporary Web Stack Demo"
                     }
                 }
             }
