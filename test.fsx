@@ -33,6 +33,7 @@ let ls2 = 4::ls1
 
 // Pattern Matching 
 
+[<TailCall>]
 let rec factorial n = 
     match n with
     | 0 -> 1
@@ -56,6 +57,7 @@ let rec printCases cases =
 // Recursion
 let ls3 = [1; 2; 3; 4; 5]
 
+[<TailCall>]
 let rec fSum acc ls = 
     match ls with
     | [] -> acc
@@ -68,6 +70,13 @@ let ls4 = List.map (fun x -> x * 2) ls3
 let ls5 = List.filter (fun x -> x % 2 = 0) ls3
 let sum = List.fold (fun acc x -> acc + x) 0 ls3
 let sums = List.scan (fun acc x -> acc + x) 0 ls3
+
+//Base collections List, Seq, Array, Map, Set  - immutable functional data structures
+let st1 = set ["a"; "n"]
+let st2 = st1 |> Set.map(fun x -> x + "2")
+let st3 = st1 |> Set.filter(fun x -> x = "a")
+let st4 = st1 |> Set.fold(fun acc x -> acc + x) ""
+
 
 // List Comprehensions
 let cList1 = [for i in 1 .. 10 -> i * 2]
