@@ -5,29 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Client+Server",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "Build: solution",
-            "launchSettingsFilePath": "${workspaceFolder}/src/CW1.Server/Properties/launchSettings.json",
-            "launchSettingsProfile": "CW1.Server",
-            "program": "${workspaceFolder}/src/CW1.Server/bin/Debug/net8.0/CW1.Server.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/src/CW1.Server",
-            "stopAtEntry": false,
-            "serverReadyAction": {
-                "action": "openExternally",
-                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
-                "uriFormat": "%s?server=true"                               
-            },
-            "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
-            },
-            "sourceFileMap": {
-                "/Views": "${workspaceFolder}/Views"
-            }
-        },
-        {
             "name": "Fast Client - Debug Server",
             "type": "coreclr",
             "request": "launch",
@@ -40,14 +17,51 @@
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",
-                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",                
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
             },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
-            },
-            "sourceFileMap": {
-                "/Views": "${workspaceFolder}/Views"
             }
-        }
+        },
+        {
+            "name": "WASM Debug",
+            "type": "blazorwasm",
+            "hosted": true,
+            "request": "launch",
+            "preLaunchTask": "Build: solution",
+            "launchSettingsFilePath": "${workspaceFolder}/src/CW1.Server/Properties/launchSettings.json",
+            "launchSettingsProfile": "CW1.Server",
+            "program": "${workspaceFolder}/src/CW1.Server/bin/Debug/net8.0/CW1.Server.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/CW1.Server",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": "Deprecated: Debug Client+Server",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Build: solution",
+            "launchSettingsFilePath": "${workspaceFolder}/src/CW1.Server/Properties/launchSettings.json",
+            "launchSettingsProfile": "CW1.Server",
+            "program": "${workspaceFolder}/src/CW1.Server/bin/Debug/net8.0/CW1.Server.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/CW1.Server",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s?server=true"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
     ]
 }
