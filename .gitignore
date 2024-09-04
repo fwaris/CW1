@@ -362,3 +362,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /.VSCodeCounter/2024-02-01_11-33-02
+/src/CW1.Server/Properties/ServiceDependencies/CW1Server - Web Deploy
