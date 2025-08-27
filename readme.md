@@ -10,7 +10,7 @@ This repo contains an example **Contempory** web stack application, which can be
 # Setup and Installation
 
 ### Requirements
-- Dotnet SDK (8.0 as of now)
+- Dotnet SDK (9.0 as of now)
 - Visual Studio Code with F# Ionide plugin
 - Or Visual Studio with F# components installed
 
@@ -80,6 +80,4 @@ This repo contains an example **Contempory** web stack application, which can be
 - F# - functional programming language 
     - Expressive and type-safe (generally, gives same result with less code)
     - Broad reach – from Data Science - big data (Spark), to mobile & web development
-- WebAssembly
-    - Remember this name as much more is to come, including cloud workload containers
 
